@@ -61,6 +61,19 @@ public class ReadWebTableDynamic {
 		return list2 ;
 	 }
 	 
+	 public List<String> getAllRowData()
+	 {
+		 list  = new ArrayList<WebElement>();
+		 list = driver.findElements(By.xpath("//table[@class='dataTable']/tbody/tr"));
+		 list2 = new ArrayList<String>();
+		 for(WebElement w : list)
+		 {
+			list2.add(w.getText()) ;
+		 }
+		return list2 ;
+		 
+	 }
+	 
 	 
 	@Test
 	public void testClass()
@@ -70,6 +83,12 @@ public class ReadWebTableDynamic {
 		driver.manage().window().maximize();
 		System.out.println(getAnyColData(4));
 		System.out.println(getAnyRowData(1));
+		System.out.println("getAllRowData()");
+		
+		for(String s : getAllRowData())
+		{
+			System.out.println(s);
+		}
 
 		
 		
